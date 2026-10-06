@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pathfinding Arena</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Pathfinding Arena</h1>
+  <p class="subtitle">Draw a maze, race four pathfinding algorithms, watch them think.</p>
+</header>
+
+<main>
+  <aside id="controls">
+    <section class="panel">
+      <h2>Tool</h2>
+      <div class="btn-grid">
+        <button data-tool="wall" class="tool active">🧱 Wall</button>
+        <button data-tool="erase" class="tool">🧽 Erase</button>
+        <button data-tool="start" class="tool">▶ Start</button>
+        <button data-tool="end" class="tool">🏁 End</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Algorithms</h2>
+      <div class="algo-row">
+        <label class="chk"><input type="checkbox" value="astar" checked> <span class="dot a-astar"></span>A*</label>
+        <label class="chk"><input type="checkbox" value="dijkstra" checked> <span class="dot a-dijkstra"></span>Dijkstra</label>
+        <label class="chk"><input type="checkbox" value="bfs" checked> <span class="dot a-bfs"></span>BFS</label>
+        <label class="chk"><input type="checkbox" value="greedy" checked> <span class="dot a-greedy"></span>Greedy</label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Speed <span id="speedVal" class="muted">fast</span></h2>
+      <input type="range" id="speed" min="1" max="5" value="4">
+    </section>
+
+    <section class="panel">
+      <h2>Maze</h2>
+      <div class="btn-grid">
+        <button id="btnRandom" class="action">🎲 Random</button>
+        <button id="btnRecursive" class="action">🌀 Recursive</button>
+        <button id="btnClearWalls" class="action">Clear walls</button>
+        <button id="btnClearAll" class="action">Reset all</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="run-row">
+        <button id="btnRun" class="primary">▶ Visualize</button>
+        <button id="btnPause" class="action" disabled>⏸ Pause</button>
+      </div>
+      <p class="hint">Drag on the grid to draw. Hold Shift to erase.</p>
+    </section>
+  </aside>
+
+  <div id="board">
+    <div id="stats"></div>
+    <div id="grid"></div>
+  </div>
+</main>
+
+<script src="js/heap.js"></script>
+<script src="js/maze.js"></script>
+<script src="js/algorithms.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
