@@ -28,3 +28,9 @@ All four share one heap-based step-generator core, differing only in priority:
 | Dijkstra | `g` (optimal, explores uniformly) |
 | BFS | `g` with insertion-order ties (optimal on unweighted grids) |
 | Greedy | `manhattan` (fast, not optimal) |
+
+## Sharing
+
+**Share link** writes the current maze (walls, start, and end) into the URL as
+a compact run-length-encoded hash and copies the link. Anyone who opens it
+sees exactly your maze — no server, no storage, everything lives in the URL.

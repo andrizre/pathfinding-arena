@@ -220,4 +220,8 @@ document.getElementById('btnClearAll').addEventListener('click', () => {
   statsEl.innerHTML = '';
 });
 
+// ---- Restore shared maze from URL hash --------------------------------------
+// share.js (loaded after app.js) defines tryRestoreFromHash, which reads the
+// grid/start/end globals and returns true if a valid #m= hash was applied.
+
 renderBase();
