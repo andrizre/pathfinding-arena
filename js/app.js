@@ -73,16 +73,22 @@ function applyTool(x, y) {
   renderBase();
 }
 
+function applyPointer(e) {
+  // With pointer capture on #grid, e.target is always #grid, so locate the
+  // cell from pointer coordinates instead of e.target.
+  const el = document.elementFromPoint(e.clientX, e.clientY);
+  const c = el && el.closest('.cell');
+  if (c) applyTool(+c.dataset.x, +c.dataset.y);
+}
+
 gridEl.addEventListener('pointerdown', (e) => {
   dragging = true;
   gridEl.setPointerCapture(e.pointerId);
-  const c = e.target.closest('.cell');
-  if (c) applyTool(+c.dataset.x, +c.dataset.y);
+  applyPointer(e);
 });
 gridEl.addEventListener('pointermove', (e) => {
   if (!dragging) return;
-  const c = e.target.closest('.cell');
-  if (c) applyTool(+c.dataset.x, +c.dataset.y);
+  applyPointer(e);
 });
 gridEl.addEventListener('pointerup', () => { dragging = false; });
 
